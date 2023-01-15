@@ -10,12 +10,21 @@ import { SearchResultsPage } from "./pages/SearchResultsPage";
 import { ShoppingCartPage } from "./pages/ShoppingCartPage";
 import { Navbar } from "./components/Navbar.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+// Import our custom CSS
+import "./scss/style.scss";
+
+// Import all of Bootstrap's JS
+import * as bootstrap from "bootstrap";
 
 export default function App() {
   return (
     <>
       <Navbar />
       <h1>Hallo</h1>
+      <div class="container py-4 px-3 mx-auto">
+        <h1>Hello, Bootstrap and Vite!</h1>
+        <button class="btn btn-primary ">Primary button</button>
+      </div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage />} />
