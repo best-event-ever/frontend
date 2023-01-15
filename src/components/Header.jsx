@@ -1,6 +1,5 @@
 import React from "react";
-import { Container } from "react-bootstrap";
 
-export const Header = () => {
-  return <Container>Header</Container>;
-};
+export function Header() {
+  return <h1>Header</h1>;
+}

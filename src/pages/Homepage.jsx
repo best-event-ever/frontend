@@ -1,10 +1,11 @@
 import React from "react";
-// import { Container } from "react-bootstrap";
+import { Header } from "../components/Header.jsx";
+import { Navbar } from "../components/Navbar.jsx";
 
 export function Homepage() {
   return (
     <div>
-      <h1>Veranstaltungsübersicht</h1>
+      <h1>Homepage</h1>
     </div>
   );
 }
