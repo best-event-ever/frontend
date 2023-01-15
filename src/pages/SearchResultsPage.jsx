@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
+import { Container } from "react-bootstrap";
 
-export const SearchResultsPage = () => {
-  return (
-    <div>SearchResultsPage</div>
-  )
+export function SearchResultsPage() {
+  return <h1>SearchResultsPage</h1>;
 }

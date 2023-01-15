@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
+import { Container } from "react-bootstrap";
 
-export const ShoppingCartPage = () => {
-  return (
-    <div>ShoppingCartPage</div>
-  )
+export function ShoppingCartPage() {
+  return <h1>ShoppingCartPage</h1>;
 }

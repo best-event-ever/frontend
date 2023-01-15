@@ -1,5 +1,9 @@
 import React from "react";
 
-export const EventDetailsPage = () => {
-  return <div>EventDetailsPage</div>;
-};
+export function EventDetailsPage() {
+  return (
+    <div>
+      <h1>EventDetailsPage</h1>
+    </div>
+  );
+}

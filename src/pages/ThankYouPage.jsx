@@ -1,5 +1,6 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 
-export const ThankYouPage = () => {
-  return <div>ThankYouPage</div>;
-};
+export function ThankYouPage() {
+  return <h1>ThankYouPage</h1>;
+}

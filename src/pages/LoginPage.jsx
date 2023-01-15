@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
+import { Container } from "react-bootstrap";
 
-export const LoginPage = () => {
-  return (
-    <div>LoginPage</div>
-  )
+export function LoginPage() {
+  return <h1>LoginPage</h1>;
 }

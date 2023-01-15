@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
+import { Container } from "react-bootstrap";
 
-export const ProfilPage = () => {
-  return (
-    <div>ProfilPage</div>
-  )
+export function ProfilPage() {
+  return <h1>ProfilPage</h1>;
 }
