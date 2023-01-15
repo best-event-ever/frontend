@@ -20,11 +20,11 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <h1>Hallo</h1>
+      {/* <h1>Hallo</h1>
       <div class="container py-4 px-3 mx-auto">
         <h1>Hello, Bootstrap and Vite!</h1>
         <button class="btn btn-primary ">Primary button</button>
-      </div>
+      </div> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage />} />
