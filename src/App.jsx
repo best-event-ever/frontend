@@ -9,6 +9,7 @@ import { RegistrationPage } from "./pages/RegistrationPage";
 import { SearchResultsPage } from "./pages/SearchResultsPage";
 import { ShoppingCartPage } from "./pages/ShoppingCartPage";
 import { Navbar } from "./components/Navbar.jsx";
+import { Header } from "./components/Header.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Import our custom CSS
 import "./scss/style.scss";
@@ -19,12 +20,8 @@ import * as bootstrap from "bootstrap";
 export default function App() {
   return (
     <>
+      <Header />
       <Navbar />
-      {/* <h1>Hallo</h1>
-      <div class="container py-4 px-3 mx-auto">
-        <h1>Hello, Bootstrap and Vite!</h1>
-        <button class="btn btn-primary ">Primary button</button>
-      </div> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage />} />
