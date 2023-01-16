@@ -10,6 +10,7 @@ import { FaSearch, FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export function Homepage() {
+  const [startDate, setStartDate] = useState(new Date());
   const [input, setInput] = useState("");
   const navigate = useNavigate();
   const submitHandler = (e) => {
@@ -31,7 +32,7 @@ export function Homepage() {
     <div>
       <h1>Suche nach Events in deiner Nähe</h1>
       <form action="" onSubmit={submitHandler}>
-        <label for="inputCity" className="form-label">
+        <label htmlFor="inputCity" className="form-label">
           Stadt
         </label>
         <input
