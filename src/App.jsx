@@ -1,6 +1,5 @@
-import ReactDOM from "react-dom/client";
+import React from "react";
 import "./App.css";
-// import { Header } from "./components/Header";
 import { Homepage } from "./pages/Homepage";
 import { EventDetailsPage } from "./pages/EventDetailsPage";
 import { LoginPage } from "./pages/LoginPage";

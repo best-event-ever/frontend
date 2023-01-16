@@ -49,28 +49,28 @@ export function Homepage() {
           placeholder="Berlin, Hamburg, München, ..."
           onChange={changeHandler}
         />
-        <div class="dropdown">
+        <div className="dropdown">
           <button
-            class="btn btn-secondary dropdown-toggle"
+            className="btn btn-secondary dropdown-toggle"
             type="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
             Umkreissuche
           </button>
-          <ul class="dropdown-menu">
+          <ul className="dropdown-menu">
             <li>
-              <a class="dropdown-item" onChange={changeHandler} href="#">
+              <a className="dropdown-item" onChange={changeHandler} href="#">
                 5 km
               </a>
             </li>
             <li>
-              <a class="dropdown-item" onChange={changeHandler} href="#">
+              <a className="dropdown-item" onChange={changeHandler} href="#">
                 10 km
               </a>
             </li>
             <li>
-              <a class="dropdown-item" onChange={changeHandler} href="#">
+              <a className="dropdown-item" onChange={changeHandler} href="#">
                 20 km
               </a>
             </li>

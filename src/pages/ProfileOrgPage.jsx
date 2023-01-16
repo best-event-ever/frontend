@@ -1,4 +1,5 @@
 import React from "react";
+import { FaHeart } from "react-icons/fa";
 
 export function ProfileOrgPage() {
   return (
@@ -7,7 +8,7 @@ export function ProfileOrgPage() {
       <form action="">
         {/* Veranstalter */}
         <div className="mb-3">
-          <label for="InputCompany" className="form-label">
+          <label htmlFor="InputCompany" className="form-label">
             Unternehmensname
           </label>
           <input
@@ -19,7 +20,7 @@ export function ProfileOrgPage() {
         </div>
         {/* Ansprechperson */}
         <div className="mb-3">
-          <label for="Inputperson" className="form-label">
+          <label htmlFor="Inputperson" className="form-label">
             Ansprechperson
           </label>
           <input
@@ -32,7 +33,7 @@ export function ProfileOrgPage() {
 
         {/* Straße und Hausnummer */}
         <div className="mb-3">
-          <label for="InputStreet" className="form-label">
+          <label htmlFor="InputStreet" className="form-label">
             Straße und Hausnummer
           </label>
           <input
@@ -44,7 +45,7 @@ export function ProfileOrgPage() {
         </div>
         {/* PLZ */}
         <div className="mb-3">
-          <label for="Inputzipcode" className="form-label">
+          <label htmlFor="Inputzipcode" className="form-label">
             Postleitzahl
           </label>
           <input
@@ -56,7 +57,7 @@ export function ProfileOrgPage() {
         </div>
         {/* Stadt */}
         <div className="mb-3">
-          <label for="Inputcity" className="form-label">
+          <label htmlFor="Inputcity" className="form-label">
             Stadt
           </label>
           <input
@@ -68,7 +69,7 @@ export function ProfileOrgPage() {
         </div>
         {/* E-Mail */}
         <div className="mb-3">
-          <label for="Inputemail" className="form-label">
+          <label htmlFor="Inputemail" className="form-label">
             E-Mail
           </label>
           <input
@@ -80,7 +81,7 @@ export function ProfileOrgPage() {
         </div>
         {/* Telefonnummer */}
         <div className="mb-3">
-          <label for="Inputphone" className="form-label">
+          <label htmlFor="Inputphone" className="form-label">
             Telefonnummer
           </label>
           <input
@@ -92,7 +93,7 @@ export function ProfileOrgPage() {
         </div>
         {/* Bankverbindung */}
         <div className="mb-3">
-          <label for="Inputpayment" className="form-label">
+          <label htmlFor="Inputpayment" className="form-label">
             Bankverbindung !!!!!!!!!!!!!!!!
           </label>
           <input
@@ -102,11 +103,12 @@ export function ProfileOrgPage() {
             aria-describedby="paymentHelp"
           />
         </div>
-
-        {/* Passwort */}
+        {/* Passwort ändern */}
+        {/* neues Passwort */}
         <div className="mb-3">
-          <label for="Inputpassword" className="form-label">
-            Passwort
+          <div className="border-top border-danger">Passwort ändern</div>
+          <label htmlFor="Inputpassword" className="form-label">
+            Neues Passwort
           </label>
           <input
             type="password"
@@ -116,8 +118,8 @@ export function ProfileOrgPage() {
           />
         </div>
         {/* Passwort wiederholen */}
-        <div className="mb-3">
-          <label for="InputrepeatPassword" className="form-label">
+        <div className="mb-3 border-top border-danger">
+          <label htmlFor="InputrepeatPassword" className="form-label">
             Passwort wiederholen
           </label>
           <input
@@ -137,6 +139,7 @@ export function ProfileOrgPage() {
             <th scope="col">Ort</th>
             <th scope="col">Datum + Uhrzeit</th>
             <th scope="col">Veranstaltungsnnummer</th>
+            <th scope="col">Preis</th>
           </tr>
         </thead>
         <tbody className="table-group-divider">
@@ -164,7 +167,9 @@ export function ProfileOrgPage() {
           </tr>
         </tbody>
       </table>
-      <form action=""></form>
+      <form action="">
+        <h3>Neue Veranstaltung hinzufügen</h3>
+      </form>
     </div>
   );
 }

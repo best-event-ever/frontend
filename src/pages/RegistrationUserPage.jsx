@@ -7,7 +7,7 @@ export function RegistrationUserPage() {
       <form action="">
         {/* Benutzername */}
         <div className="mb-3">
-          <label for="InputProfileName" className="form-label">
+          <label htmlFor="InputProfileName" className="form-label">
             Benutzername
           </label>
           <input
@@ -19,7 +19,7 @@ export function RegistrationUserPage() {
         </div>
         {/* Vorname */}
         <div className="mb-3">
-          <label for="Inputfirstname" className="form-label">
+          <label htmlFor="Inputfirstname" className="form-label">
             Vorname
           </label>
           <input
@@ -31,7 +31,7 @@ export function RegistrationUserPage() {
         </div>
         {/* Nachname */}
         <div className="mb-3">
-          <label for="InputLastName" className="form-label">
+          <label htmlFor="InputLastName" className="form-label">
             Nachname
           </label>
           <input
@@ -44,7 +44,7 @@ export function RegistrationUserPage() {
 
         {/* Straße und Hausnummer */}
         <div className="mb-3">
-          <label for="InputStreet" className="form-label">
+          <label htmlFor="InputStreet" className="form-label">
             Straße und Hausnummer
           </label>
           <input
@@ -56,7 +56,7 @@ export function RegistrationUserPage() {
         </div>
         {/* PLZ */}
         <div className="mb-3">
-          <label for="Inputzipcode" className="form-label">
+          <label htmlFor="Inputzipcode" className="form-label">
             Postleitzahl
           </label>
           <input
@@ -68,7 +68,7 @@ export function RegistrationUserPage() {
         </div>
         {/* Stadt */}
         <div className="mb-3">
-          <label for="Inputcity" className="form-label">
+          <label htmlFor="Inputcity" className="form-label">
             Stadt
           </label>
           <input
@@ -80,7 +80,7 @@ export function RegistrationUserPage() {
         </div>
         {/* E-Mail */}
         <div className="mb-3">
-          <label for="Inputemail" className="form-label">
+          <label htmlFor="Inputemail" className="form-label">
             E-Mail
           </label>
           <input
@@ -92,7 +92,7 @@ export function RegistrationUserPage() {
         </div>
         {/* Telefonnummer */}
         <div className="mb-3">
-          <label for="Inputphone" className="form-label">
+          <label htmlFor="Inputphone" className="form-label">
             Telefonnummer
           </label>
           <input
@@ -104,7 +104,7 @@ export function RegistrationUserPage() {
         </div>
         {/* Zahlungsmethode */}
         <div className="mb-3">
-          <label for="Inputpayment" className="form-label">
+          <label htmlFor="Inputpayment" className="form-label">
             Zahlungsmethode
           </label>
           <input
@@ -117,7 +117,7 @@ export function RegistrationUserPage() {
 
         {/* Passwort */}
         <div className="mb-3">
-          <label for="Inputpassword" className="form-label">
+          <label htmlFor="Inputpassword" className="form-label">
             Passwort
           </label>
           <input
@@ -129,7 +129,7 @@ export function RegistrationUserPage() {
         </div>
         {/* Passwort wiederholen */}
         <div className="mb-3">
-          <label for="InputrepeatPassword" className="form-label">
+          <label htmlFor="InputrepeatPassword" className="form-label">
             Passwort wiederholen
           </label>
           <input

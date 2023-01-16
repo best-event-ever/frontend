@@ -8,7 +8,7 @@ export function RegistrationOrgPage() {
       <form action="">
         {/* Veranstalter */}
         <div className="mb-3">
-          <label for="InputCompany" className="form-label">
+          <label htmlFor="InputCompany" className="form-label">
             Unternehmensname
           </label>
           <input
@@ -20,7 +20,7 @@ export function RegistrationOrgPage() {
         </div>
         {/* Ansprechperson */}
         <div className="mb-3">
-          <label for="Inputperson" className="form-label">
+          <label htmlFor="Inputperson" className="form-label">
             Ansprechperson
           </label>
           <input
@@ -33,7 +33,7 @@ export function RegistrationOrgPage() {
 
         {/* Straße und Hausnummer */}
         <div className="mb-3">
-          <label for="InputStreet" className="form-label">
+          <label htmlFor="InputStreet" className="form-label">
             Straße und Hausnummer
           </label>
           <input
@@ -45,7 +45,7 @@ export function RegistrationOrgPage() {
         </div>
         {/* PLZ */}
         <div className="mb-3">
-          <label for="Inputzipcode" className="form-label">
+          <label htmlFor="Inputzipcode" className="form-label">
             Postleitzahl
           </label>
           <input
@@ -57,7 +57,7 @@ export function RegistrationOrgPage() {
         </div>
         {/* Stadt */}
         <div className="mb-3">
-          <label for="Inputcity" className="form-label">
+          <label htmlFor="Inputcity" className="form-label">
             Stadt
           </label>
           <input
@@ -69,7 +69,7 @@ export function RegistrationOrgPage() {
         </div>
         {/* E-Mail */}
         <div className="mb-3">
-          <label for="Inputemail" className="form-label">
+          <label htmlFor="Inputemail" className="form-label">
             E-Mail
           </label>
           <input
@@ -81,7 +81,7 @@ export function RegistrationOrgPage() {
         </div>
         {/* Telefonnummer */}
         <div className="mb-3">
-          <label for="Inputphone" className="form-label">
+          <label htmlFor="Inputphone" className="form-label">
             Telefonnummer
           </label>
           <input
@@ -93,7 +93,7 @@ export function RegistrationOrgPage() {
         </div>
         {/* Bankverbindung */}
         <div className="mb-3">
-          <label for="Inputpayment" className="form-label">
+          <label htmlFor="Inputpayment" className="form-label">
             Bankverbindung !!!!!!!!!!!!!!!!
           </label>
           <input
@@ -106,7 +106,7 @@ export function RegistrationOrgPage() {
 
         {/* Passwort */}
         <div className="mb-3">
-          <label for="Inputpassword" className="form-label">
+          <label htmlFor="Inputpassword" className="form-label">
             Passwort
           </label>
           <input
@@ -118,7 +118,7 @@ export function RegistrationOrgPage() {
         </div>
         {/* Passwort wiederholen */}
         <div className="mb-3">
-          <label for="InputrepeatPassword" className="form-label">
+          <label htmlFor="InputrepeatPassword" className="form-label">
             Passwort wiederholen
           </label>
           <input

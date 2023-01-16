@@ -6,7 +6,7 @@ export function LoginPage() {
       <h1>LoginPage</h1>
       <form>
         <div className="mb-3">
-          <label for="InputEmail1" className="form-label">
+          <label htmlFor="InputEmail1" className="form-label">
             Email address
           </label>
           <input
@@ -17,7 +17,7 @@ export function LoginPage() {
           />
         </div>
         <div className="mb-3">
-          <label for="InputPassword1" className="form-label">
+          <label htmlFor="InputPassword1" className="form-label">
             Password
           </label>
           <input type="password" className="form-control" id="InputPassword1" />
