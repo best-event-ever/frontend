@@ -4,8 +4,10 @@ import "./App.css";
 import { Homepage } from "./pages/Homepage";
 import { EventDetailsPage } from "./pages/EventDetailsPage";
 import { LoginPage } from "./pages/LoginPage";
-import { ProfilPage } from "./pages/ProfilPage";
-import { RegistrationPage } from "./pages/RegistrationPage";
+import { ProfileUserPage } from "./pages/ProfileUserPage";
+import { ProfileOrgPage } from "./pages/ProfileOrgPage.jsx";
+import { RegistrationUserPage } from "./pages/RegistrationUserPage";
+import { RegistrationOrgPage } from "./pages/RegistrationOrgPage";
 import { SearchResultsPage } from "./pages/SearchResultsPage";
 import { ShoppingCartPage } from "./pages/ShoppingCartPage";
 import { Navbar } from "./components/Navbar.jsx";
@@ -27,8 +29,10 @@ export default function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/event-details" element={<EventDetailsPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/registration" element={<RegistrationPage />} />
-          <Route path="/profile" element={<ProfilPage />} />
+          <Route path="/registration-user" element={<RegistrationUserPage />} />
+          <Route path="/registration-org" element={<RegistrationOrgPage />} />
+          <Route path="/profile-user" element={<ProfileUserPage />} />
+          <Route path="/profile-org" element={<ProfileOrgPage />} />
           <Route path="/results" element={<SearchResultsPage />} />
           <Route path="/shoppingcart" element={<ShoppingCartPage />} />
         </Routes>

@@ -1,44 +1,33 @@
 import React from "react";
 
-export function RegistrationUserPage() {
+export function RegistrationOrgPage() {
   return (
     <div>
-      <h1>RegistrationUserPage</h1>
+      <h1>RegistrationOrganisationPage</h1>
+
       <form action="">
-        {/* Benutzername */}
+        {/* Veranstalter */}
         <div className="mb-3">
-          <label for="InputProfileName" className="form-label">
-            Benutzername
+          <label for="InputCompany" className="form-label">
+            Unternehmensname
           </label>
           <input
-            type="profilename"
+            type="Company"
             className="form-control"
-            id="InputProfileName"
-            aria-describedby="profileNameHelp"
+            id="InputCompany"
+            aria-describedby="CompanyHelp"
           />
         </div>
-        {/* Vorname */}
+        {/* Ansprechperson */}
         <div className="mb-3">
-          <label for="Inputfirstname" className="form-label">
-            Vorname
+          <label for="Inputperson" className="form-label">
+            Ansprechperson
           </label>
           <input
-            type="vorname"
+            type="person"
             className="form-control"
-            id="InputfirstName"
-            aria-describedby="firstNameHelp"
-          />
-        </div>
-        {/* Nachname */}
-        <div className="mb-3">
-          <label for="InputLastName" className="form-label">
-            Nachname
-          </label>
-          <input
-            type="lastname"
-            className="form-control"
-            id="InputLastName"
-            aria-describedby="lastNameHelp"
+            id="Inputperson"
+            aria-describedby="personHelp"
           />
         </div>
 
@@ -102,10 +91,10 @@ export function RegistrationUserPage() {
             aria-describedby="phoneHelp"
           />
         </div>
-        {/* Zahlungsmethode */}
+        {/* Bankverbindung */}
         <div className="mb-3">
           <label for="Inputpayment" className="form-label">
-            Zahlungsmethode
+            Bankverbindung !!!!!!!!!!!!!!!!
           </label>
           <input
             type="payment"

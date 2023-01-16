@@ -1,10 +1,9 @@
 import React from "react";
 
-export default function RegistrationOrganizationPage() {
+export function ProfileOrgPage() {
   return (
     <div>
-      <h1>RegistrationOrganizationPage</h1>
-
+      <h1>ProfilOrganisationPage</h1>
       <form action="">
         {/* Veranstalter */}
         <div className="mb-3">
@@ -129,6 +128,43 @@ export default function RegistrationOrganizationPage() {
           />
         </div>
       </form>
+      {/* Veranstaltungsübersicht */}
+      <h1>Veranstaltungsübersicht</h1>
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">Event</th>
+            <th scope="col">Ort</th>
+            <th scope="col">Datum + Uhrzeit</th>
+            <th scope="col">Veranstaltungsnnummer</th>
+          </tr>
+        </thead>
+        <tbody className="table-group-divider">
+          <tr>
+            <th scope="row">
+              <a href={`/event-details`}>Event 1</a>
+            </th>
+            <td>berlin</td>
+            <td>heute Abend</td>
+            <td>
+              <a href="">
+                <FaHeart />
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Event 2</th>
+            <td>stuttgart</td>
+            <td>morgen Abend</td>
+            <td>
+              <a href="">
+                <FaHeart />
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <form action=""></form>
     </div>
   );
 }
