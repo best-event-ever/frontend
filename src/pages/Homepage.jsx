@@ -115,7 +115,8 @@ export function Homepage() {
         {search.events &&
           search.events.map((item) => {
             return (
-              <tbody className="table-group-divider">
+              <tbody>
+                <div className="table-group-divider"></div>
                 <tr>
                   <th scope="row">
                     <a href={`/event-details`}>Event 1</a>
