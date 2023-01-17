@@ -7,7 +7,6 @@ export function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
-          <span className="navbar-brand">Navbar</span>
           <button
             className="navbar-toggler"
             type="button"
@@ -22,16 +21,12 @@ export function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a
-                  className="nav-link active"
-                  aria-current="page"
-                  href="http://localhost:5173"
-                >
+                <a className="nav-link active" aria-current="page" href="#">
                   Home
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="http://localhost:5173/login">
+                <a className="nav-link" href="#">
                   Login
                 </a>
               </li>

@@ -107,10 +107,7 @@ export function Homepage() {
             <th scope="col">Event</th>
             <th scope="col">Ort</th>
             <th scope="col">Datum + Uhrzeit</th>
-            <th scope="col">Preis</th>
-            <th scope="col">
-              <FaHeart />
-            </th>
+            <th scope="col">Eintrittspreisreis</th>
           </tr>
         </thead>
         {search.events &&
@@ -124,21 +121,11 @@ export function Homepage() {
                   </th>
                   <td>berlin</td>
                   <td>heute Abend</td>
-                  <td>
-                    <a href="">
-                      <FaHeart />
-                    </a>
-                  </td>
                 </tr>
                 <tr>
                   <th scope="row">Event 2</th>
                   <td>stuttgart</td>
                   <td>morgen Abend</td>
-                  <td>
-                    <a href="">
-                      <FaHeart />
-                    </a>
-                  </td>
                 </tr>
               </tbody>
             );

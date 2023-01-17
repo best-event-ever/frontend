@@ -8,7 +8,6 @@ import { ProfileOrgPage } from "./pages/ProfileOrgPage.jsx";
 import { RegistrationUserPage } from "./pages/RegistrationUserPage";
 import { RegistrationOrgPage } from "./pages/RegistrationOrgPage";
 import { SearchResultsPage } from "./pages/SearchResultsPage";
-import { ShoppingCartPage } from "./pages/ShoppingCartPage";
 import { Navbar } from "./components/Navbar.jsx";
 import { Header } from "./components/Header.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -33,7 +32,6 @@ export default function App() {
           <Route path="/profile-user" element={<ProfileUserPage />} />
           <Route path="/profile-org" element={<ProfileOrgPage />} />
           <Route path="/results" element={<SearchResultsPage />} />
-          <Route path="/shoppingcart" element={<ShoppingCartPage />} />
         </Routes>
       </BrowserRouter>
     </>

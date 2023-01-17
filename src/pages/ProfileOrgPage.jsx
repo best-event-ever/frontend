@@ -28,16 +28,13 @@ export function ProfileOrgPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(
-      "mongodb+srv://Ella:GjF8pF3zzCrWasQr@ellascluster.tgz3pmk.mongodb.net/event/events",
-      {
-        method: "POST",
-        body: JSON.stringify(formData),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      }
-    )
+    fetch("http:/events", {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
       .then((response) => response.json())
       .then((response) => fetchData());
     setFormData(INITIAL);
@@ -194,8 +191,7 @@ export function ProfileOrgPage() {
             <th scope="col">Event</th>
             <th scope="col">Ort</th>
             <th scope="col">Datum + Uhrzeit</th>
-            <th scope="col">Veranstaltungsnnummer</th>
-            <th scope="col">Preis</th>
+            <th scope="col">Eintrittspreisreis</th>
           </tr>
         </thead>
         <tbody className="table-group-divider">
@@ -204,23 +200,13 @@ export function ProfileOrgPage() {
               <a href={`/event-details`}>Event 1</a>
             </th>
             <td>berlin</td>
-            <td>heute Abend</td>
-            <td>
-              <a href="">
-                <FaHeart />
-              </a>
-            </td>
+            <td>20.05.2023</td>
             <td>100,00€</td>
           </tr>
           <tr>
             <th scope="row">Event 2</th>
             <td>stuttgart</td>
             <td>morgen Abend</td>
-            <td>
-              <a href="">
-                <FaHeart />
-              </a>
-            </td>
           </tr>
         </tbody>
       </table>
