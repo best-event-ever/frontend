@@ -107,6 +107,7 @@ export function Homepage() {
             <th scope="col">Event</th>
             <th scope="col">Ort</th>
             <th scope="col">Datum + Uhrzeit</th>
+            <th scope="col">Preis</th>
             <th scope="col">
               <FaHeart />
             </th>

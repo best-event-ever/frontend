@@ -1,7 +1,63 @@
 import React from "react";
 import { FaHeart } from "react-icons/fa";
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+import connection from "../../connection.json";
 
 export function ProfileOrgPage() {
+  const [startDate, setStartDate] = useState(new Date());
+  const INITIAL = {
+    name: "",
+  };
+  const [formData, setFormData] = useState(INITIAL);
+
+  const handleChange = (e) => {
+    setFormData(
+      (prev) => (prev = { ...prev, [e.target.name]: e.target.value })
+    );
+  };
+
+  const [events, setEvents] = useState([]);
+  const fetchData = async () => {
+    const response = await fetch(
+      "mongodb+srv://Ella:GjF8pF3zzCrWasQr@ellascluster.tgz3pmk.mongodb.net/event/events"
+    );
+    const data = await response.json();
+    setEvents(data);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch(
+      "mongodb+srv://Ella:GjF8pF3zzCrWasQr@ellascluster.tgz3pmk.mongodb.net/event/events",
+      {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then((response) => fetchData());
+    setFormData(INITIAL);
+  };
+
+  // const showList = () => {
+  //   fetchData();
+  // }
+
+  // const itemDelete = (e) => {
+  //   e.preventDefault();
+  //   fetch(`${connection.URI}`, {
+  //     method: "DELETE",
+  //     headers: {
+  //       "Content-type": "application/json; charset=UTF-8",
+  //     },
+  //   })
+  //   .then((response) => response.json())
+  //   .then((response) => fetchData());
+  // };
   return (
     <div>
       <h1>ProfilOrganisationPage</h1>
@@ -154,6 +210,7 @@ export function ProfileOrgPage() {
                 <FaHeart />
               </a>
             </td>
+            <td>100,00€</td>
           </tr>
           <tr>
             <th scope="row">Event 2</th>
@@ -167,8 +224,72 @@ export function ProfileOrgPage() {
           </tr>
         </tbody>
       </table>
-      <form action="">
+      <form action="" onSubmit={handleSubmit}>
         <h3>Neue Veranstaltung hinzufügen</h3>
+        <div className="mb-3">
+          <label htmlFor="InputEventTitle" className="form-label">
+            Name der Veranstaltung
+          </label>
+          <input
+            type="eventTitle"
+            className="form-control"
+            id="eventTitle"
+            aria-describedby="eventTitleHelp"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="InputEventPlace" className="form-label">
+            Veranstaltungsort
+          </label>
+          <input
+            type="eventPlace"
+            className="form-control"
+            id="eventPlace"
+            aria-describedby="eventPlaceHelp"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="InputEventCity" className="form-label">
+            Stadt
+          </label>
+          <input
+            type="eventCity"
+            className="form-control"
+            id="eventCity"
+            aria-describedby="eventCityHelp"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="eventDate">Datum und Uhrzeit</label>
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            monthsShown={1}
+            showTimeSelect
+            timeFormat="HH:mm"
+            timeIntervals={15}
+            timeCaption="Uhrzeit"
+            locale="de"
+            dateFormat="dd.MM.yyyy HH:mm"
+            value={startDate}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="InputEventPrice" className="form-label">
+            Preis
+          </label>
+          <input
+            type="eventPrice"
+            className="form-control"
+            id="eventPrice"
+            aria-describedby="eventPriceHelp"
+            onChange={handleChange}
+          />
+        </div>
+        <button onClick={handleSubmit}>Speichern</button>
       </form>
     </div>
   );
