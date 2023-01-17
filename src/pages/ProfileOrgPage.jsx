@@ -6,36 +6,54 @@ import connection from "../../connection.json";
 
 export function ProfileOrgPage() {
   const [startDate, setStartDate] = useState(new Date());
-  const INITIAL = {
-    name: "",
-  };
-  const [formData, setFormData] = useState(INITIAL);
 
-  const handleChange = (e) => {
-    setFormData(
-      (prev) => (prev = { ...prev, [e.target.name]: e.target.value })
-    );
-  };
+  // R E G I S T R A T I O N -----
 
-  const [events, setEvents] = useState([]);
-  const fetchData = async () => {
-    const response = await fetch("http://127.0.0.1:4009/organizer/events/");
-    const data = await response.json();
-    setEvents(data);
-  };
+  // const handleChange = (e) => {
+  //   setFormData(
+  //     (prev) => (prev = { ...prev, [e.target.name]: e.target.value })
+  //   );
+  // };
+
+  // const [events, setEvents] = useState([]);
+  // const fetchData = async () => {
+  //   const response = await fetch("http://127.0.0.1:4009/organizer/events/");
+  //   const data = await response.json();
+  //   setEvents(data);
+  // };
+
+  // POST event -----
+  const [event, setEvent] = useState({
+    eventTitle: "",
+    eventPlace: "",
+    eventCity: "",
+    eventDate: "",
+    eventPrice: "",
+  });
+  const [inputTitle, setInputTitle] = useState("");
+  const [inputPlace, setInputPlace] = useState("");
+  const [inputCity, setInputCity] = useState("");
+  const [inputPrice, setInputPrice] = useState("");
+
+  // const handleChange = (e) => {
+  //   setEvent((prev) => (prev = { ...prev, [e.target.name]: e.target.value }));
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://127.0.0.1:4009/organizer/events/", {
+    fetch("http://localhost:4009/organizer/events/", {
       method: "POST",
-      body: JSON.stringify(formData),
+      body: JSON.stringify(event),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
-    })
-      .then((response) => response.json())
-      .then((response) => fetchData());
-    setFormData(INITIAL);
+    }).then((response) => response.json());
+    setEvent(event);
+    // setInputTitle("");
+    // setInputPlace("");
+    // setInputCity("");
+    // setInputPrice("");
+    console.log(event);
   };
 
   // const showList = () => {
@@ -215,11 +233,12 @@ export function ProfileOrgPage() {
             Name der Veranstaltung
           </label>
           <input
+            value={inputTitle}
             type="eventTitle"
             className="form-control"
             id="eventTitle"
             aria-describedby="eventTitleHelp"
-            onChange={handleChange}
+            onChange={(e) => setInputTitle(e.target.value)}
           />
         </div>
         <div className="mb-3">
@@ -227,11 +246,12 @@ export function ProfileOrgPage() {
             Veranstaltungsort
           </label>
           <input
+            value={inputPlace}
             type="eventPlace"
             className="form-control"
             id="eventPlace"
             aria-describedby="eventPlaceHelp"
-            onChange={handleChange}
+            onChange={(e) => setInputPlace(e.target.value)}
           />
         </div>
         <div className="mb-3">
@@ -239,11 +259,12 @@ export function ProfileOrgPage() {
             Stadt
           </label>
           <input
+            value={inputCity}
             type="eventCity"
             className="form-control"
             id="eventCity"
             aria-describedby="eventCityHelp"
-            onChange={handleChange}
+            onChange={(e) => setInputCity(e.target.value)}
           />
         </div>
         <div>
@@ -266,16 +287,15 @@ export function ProfileOrgPage() {
             Preis
           </label>
           <input
+            value={inputPrice}
             type="eventPrice"
             className="form-control"
             id="eventPrice"
             aria-describedby="eventPriceHelp"
-            onChange={handleChange}
+            onChange={(e) => setInputPrice(e.target.value)}
           />
         </div>
-        <button type="submit" onClick={handleSubmit}>
-          Speichern
-        </button>
+        <button onClick={handleSubmit}>Speichern</button>
       </form>
     </div>
   );
