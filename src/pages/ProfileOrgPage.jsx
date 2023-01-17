@@ -7,21 +7,6 @@ import connection from "../../connection.json";
 export function ProfileOrgPage() {
   const [startDate, setStartDate] = useState(new Date());
 
-  // R E G I S T R A T I O N -----
-
-  // const handleChange = (e) => {
-  //   setFormData(
-  //     (prev) => (prev = { ...prev, [e.target.name]: e.target.value })
-  //   );
-  // };
-
-  // const [events, setEvents] = useState([]);
-  // const fetchData = async () => {
-  //   const response = await fetch("http://127.0.0.1:4009/organizer/events/");
-  //   const data = await response.json();
-  //   setEvents(data);
-  // };
-
   // POST event -----
   const [event, setEvent] = useState({
     eventTitle: "",
@@ -30,14 +15,10 @@ export function ProfileOrgPage() {
     eventDate: "",
     eventPrice: "",
   });
-  const [inputTitle, setInputTitle] = useState("");
-  const [inputPlace, setInputPlace] = useState("");
-  const [inputCity, setInputCity] = useState("");
-  const [inputPrice, setInputPrice] = useState("");
 
-  // const handleChange = (e) => {
-  //   setEvent((prev) => (prev = { ...prev, [e.target.name]: e.target.value }));
-  // };
+  const handleChange = (e) => {
+    setEvent({ ...event, [e.target.id]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -233,12 +214,12 @@ export function ProfileOrgPage() {
             Name der Veranstaltung
           </label>
           <input
-            value={inputTitle}
-            type="eventTitle"
+            value={event.eventTitle}
+            type="text"
             className="form-control"
             id="eventTitle"
             aria-describedby="eventTitleHelp"
-            onChange={(e) => setInputTitle(e.target.value)}
+            onChange={handleChange}
           />
         </div>
         <div className="mb-3">
@@ -246,12 +227,12 @@ export function ProfileOrgPage() {
             Veranstaltungsort
           </label>
           <input
-            value={inputPlace}
-            type="eventPlace"
+            value={event.eventPlace}
+            type="text"
             className="form-control"
             id="eventPlace"
             aria-describedby="eventPlaceHelp"
-            onChange={(e) => setInputPlace(e.target.value)}
+            onChange={handleChange}
           />
         </div>
         <div className="mb-3">
@@ -259,12 +240,12 @@ export function ProfileOrgPage() {
             Stadt
           </label>
           <input
-            value={inputCity}
-            type="eventCity"
+            value={event.eventCity}
+            type="text"
             className="form-control"
             id="eventCity"
             aria-describedby="eventCityHelp"
-            onChange={(e) => setInputCity(e.target.value)}
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -287,15 +268,15 @@ export function ProfileOrgPage() {
             Preis
           </label>
           <input
-            value={inputPrice}
-            type="eventPrice"
+            value={event.eventPrice}
+            type="text"
             className="form-control"
             id="eventPrice"
             aria-describedby="eventPriceHelp"
-            onChange={(e) => setInputPrice(e.target.value)}
+            onChange={handleChange}
           />
         </div>
-        <button onClick={handleSubmit}>Speichern</button>
+        <button type="submit">Speichern</button>
       </form>
     </div>
   );
