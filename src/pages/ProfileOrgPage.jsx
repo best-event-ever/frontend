@@ -19,16 +19,14 @@ export function ProfileOrgPage() {
 
   const [events, setEvents] = useState([]);
   const fetchData = async () => {
-    const response = await fetch(
-      "mongodb+srv://Ella:GjF8pF3zzCrWasQr@ellascluster.tgz3pmk.mongodb.net/event/events"
-    );
+    const response = await fetch("http://127.0.0.1:4009/organizer/events/");
     const data = await response.json();
     setEvents(data);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http:/events", {
+    fetch("http://127.0.0.1:4009/organizer/events/", {
       method: "POST",
       body: JSON.stringify(formData),
       headers: {
@@ -275,7 +273,9 @@ export function ProfileOrgPage() {
             onChange={handleChange}
           />
         </div>
-        <button onClick={handleSubmit}>Speichern</button>
+        <button type="submit" onClick={handleSubmit}>
+          Speichern
+        </button>
       </form>
     </div>
   );
