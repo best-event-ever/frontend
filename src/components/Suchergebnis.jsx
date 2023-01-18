@@ -1,6 +1,8 @@
 import React from 'react';
+// import { getSearchParamsForLocation } from 'react-router-dom/dist/dom.js';
 
-const Suchergebnis = ({search}) => {
+const Suchergebnis = ({search, uebergabe}) => {
+  console.log('inputvariable',uebergabe);
   return (
     <div>
       <table className="table">
@@ -15,11 +17,13 @@ const Suchergebnis = ({search}) => {
         </thead>
         <tbody>
         {search.length > 0 &&
-          search.map((item) => {
+          search
+          .filter((city) => city.eventCity === uebergabe)
+          .map((item) => {
             return (
               
                 // <div className="table-group-divider"></div>
-                <tr>
+                <tr key={item._id}>
                   {/* <th scope="row">
                     <a href={`/event-details`}>Event 1</a>
                   </th> */}
