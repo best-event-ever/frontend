@@ -1,11 +1,11 @@
 import React from "react";
 import { Navbar as NavbarBs } from "react-bootstrap";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export function Navbar() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-light">
+      <NavbarBs className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
           <button
             className="navbar-toggler"
@@ -30,7 +30,7 @@ export function Navbar() {
                   Login
                 </a>
               </li>
-              <li className="nav-item dropdown">
+              {/* <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
                   href="#"
@@ -58,12 +58,12 @@ export function Navbar() {
                     </a>
                   </li>
                 </ul>
-              </li>
+              </li> 
               <li className="nav-item">
                 <a className="nav-link disabled">Disabled</a>
-              </li>
+              </li>*/}
             </ul>
-            <form className="d-flex" role="search">
+            {/* <form className="d-flex" role="search">
               <input
                 className="form-control me-2"
                 type="search"
@@ -73,10 +73,10 @@ export function Navbar() {
               <button className="btn btn-outline-success" type="submit">
                 Search
               </button>
-            </form>
+            </form> */}
           </div>
         </div>
-      </nav>
+      </NavbarBs>
     </div>
   );
 }

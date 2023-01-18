@@ -1,18 +1,42 @@
 import React from "react";
-import { FaHeart } from "react-icons/fa";
 import { useState } from "react";
-import DatePicker from "react-datepicker";
-import connection from "../../connection.json";
 
 export function ProfileOrgPage() {
-  const [startDate, setStartDate] = useState(new Date());
+  // P A T C H  O R G A N I Z E R -----
+  const [organizer, setOrganizer] = useState({
+    veranstalter: "",
+    ansprechperson: "",
+    strasse: "",
+    hausnr: "",
+    plz: "",
+    stadt: "",
+    email: "",
+    telefonnummer: "",
+    password: "",
+    passwordWiederholen: "",
+    isAdmin: false,
+  });
 
-  // POST event -----
+  const handleUpdateSubmit = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:4009/organizer/", {
+      method: "PATCH",
+      body: JSON.stringify(organizer),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    }).then((response) => response.json());
+    setOrganizer(organizer);
+    console.log(organizer);
+  };
+
+  // P O S T  E V E N T -----
   const [event, setEvent] = useState({
     eventTitle: "",
     eventPlace: "",
     eventCity: "",
     eventDate: "",
+    eventTime: "",
     eventPrice: "",
   });
 
@@ -30,156 +54,169 @@ export function ProfileOrgPage() {
       },
     }).then((response) => response.json());
     setEvent(event);
-    // setInputTitle("");
-    // setInputPlace("");
-    // setInputCity("");
-    // setInputPrice("");
     console.log(event);
   };
 
-  // const showList = () => {
-  //   fetchData();
-  // }
-
-  // const itemDelete = (e) => {
-  //   e.preventDefault();
-  //   fetch(`${connection.URI}`, {
-  //     method: "DELETE",
-  //     headers: {
-  //       "Content-type": "application/json; charset=UTF-8",
-  //     },
-  //   })
-  //   .then((response) => response.json())
-  //   .then((response) => fetchData());
-  // };
   return (
-    <div>
-      <h1>ProfilOrganisationPage</h1>
-      <form action="">
+    <div className="mt-4">
+      <h1>Ihr Profil</h1>
+
+      {/* D A T E N  Ä N D E R N  */}
+      <form action="" className="mt-4" onSubmit={handleUpdateSubmit}>
         {/* Veranstalter */}
         <div className="mb-3">
           <label htmlFor="InputCompany" className="form-label">
             Unternehmensname
           </label>
           <input
-            type="Company"
+            value={organizer.veranstalter}
+            type="text"
             className="form-control"
             id="InputCompany"
             aria-describedby="CompanyHelp"
+            onChange={handleChange}
           />
         </div>
+
         {/* Ansprechperson */}
         <div className="mb-3">
           <label htmlFor="Inputperson" className="form-label">
             Ansprechperson
           </label>
           <input
-            type="person"
+            value={organizer.ansprechperson}
+            type="text"
             className="form-control"
             id="Inputperson"
             aria-describedby="personHelp"
+            onChange={handleChange}
           />
         </div>
 
-        {/* Straße und Hausnummer */}
+        {/* Straße */}
         <div className="mb-3">
           <label htmlFor="InputStreet" className="form-label">
-            Straße und Hausnummer
+            Straße
           </label>
           <input
-            type="street"
+            value={organizer.strasse}
+            type="text"
             className="form-control"
             id="Inputstreet"
             aria-describedby="streetHelp"
+            onChange={handleChange}
           />
         </div>
+
+        {/* Hausnummer */}
+        <div className="mb-3">
+          <label htmlFor="InputStrNumber" className="form-label">
+            Hausnummer
+          </label>
+          <input
+            value={organizer.hausnr}
+            type="text"
+            className="form-control"
+            id="InputStrNumber"
+            aria-describedby="strNumberHelp"
+            onChange={handleChange}
+          />
+        </div>
+
         {/* PLZ */}
         <div className="mb-3">
           <label htmlFor="Inputzipcode" className="form-label">
             Postleitzahl
           </label>
           <input
-            type="zipcode"
+            value={organizer.plz}
+            type="text"
             className="form-control"
             id="Inputzipcode"
             aria-describedby="zipcodeHelp"
+            onChange={handleChange}
           />
         </div>
+
         {/* Stadt */}
         <div className="mb-3">
           <label htmlFor="Inputcity" className="form-label">
             Stadt
           </label>
           <input
-            type="city"
+            value={organizer.stadt}
+            type="text"
             className="form-control"
             id="Inputcity"
             aria-describedby="cityHelp"
+            onChange={handleChange}
           />
         </div>
+
         {/* E-Mail */}
         <div className="mb-3">
           <label htmlFor="Inputemail" className="form-label">
             E-Mail
           </label>
           <input
+            value={organizer.email}
             type="email"
             className="form-control"
             id="Inputemail"
             aria-describedby="emailHelp"
+            onChange={handleChange}
           />
         </div>
+
         {/* Telefonnummer */}
         <div className="mb-3">
           <label htmlFor="Inputphone" className="form-label">
             Telefonnummer
           </label>
           <input
-            type="phone"
+            value={organizer.telefonnummer}
+            type="text"
             className="form-control"
             id="Inputphone"
             aria-describedby="phoneHelp"
+            onChange={handleChange}
           />
         </div>
-        {/* Bankverbindung */}
+
+        {/* Passwort */}
         <div className="mb-3">
-          <label htmlFor="Inputpayment" className="form-label">
-            Bankverbindung !!!!!!!!!!!!!!!!
-          </label>
-          <input
-            type="payment"
-            className="form-control"
-            id="Inputpayment"
-            aria-describedby="paymentHelp"
-          />
-        </div>
-        {/* Passwort ändern */}
-        {/* neues Passwort */}
-        <div className="mb-3">
-          <div className="border-top border-danger">Passwort ändern</div>
           <label htmlFor="Inputpassword" className="form-label">
-            Neues Passwort
+            Passwort
           </label>
           <input
+            value={organizer.password}
             type="password"
             className="form-control"
             id="Inputpassword"
             aria-describedby="passwordHelp"
+            onChange={handleChange}
           />
         </div>
+
         {/* Passwort wiederholen */}
-        <div className="mb-3 border-top border-danger">
+        <div className="mb-3">
           <label htmlFor="InputrepeatPassword" className="form-label">
             Passwort wiederholen
           </label>
           <input
-            type="repeatPassword"
+            value={organizer.passwordWiederholen}
+            type="password"
             className="form-control"
             id="InputrepeatPassword"
             aria-describedby="repeatPasswordHelp"
+            onChange={handleChange}
           />
         </div>
+        <button className="mt-2" type="submit">
+          Speichern
+        </button>
       </form>
+
       {/* Veranstaltungsübersicht */}
       <h1>Veranstaltungsübersicht</h1>
       <table className="table">
@@ -187,7 +224,8 @@ export function ProfileOrgPage() {
           <tr>
             <th scope="col">Event</th>
             <th scope="col">Ort</th>
-            <th scope="col">Datum + Uhrzeit</th>
+            <th scope="col">Datum</th>
+            <th scope="col">Uhrzeit</th>
             <th scope="col">Eintrittspreisreis</th>
           </tr>
         </thead>
@@ -207,8 +245,12 @@ export function ProfileOrgPage() {
           </tr>
         </tbody>
       </table>
+
+      {/* N E U E S  E V E N T  A N L E G E N */}
       <form action="" onSubmit={handleSubmit}>
-        <h3>Neue Veranstaltung hinzufügen</h3>
+        <h3 className="mt-5 mb-3">Neue Veranstaltung hinzufügen</h3>
+
+        {/* Titel */}
         <div className="mb-3">
           <label htmlFor="InputEventTitle" className="form-label">
             Name der Veranstaltung
@@ -220,8 +262,11 @@ export function ProfileOrgPage() {
             id="eventTitle"
             aria-describedby="eventTitleHelp"
             onChange={handleChange}
+            placeholder="Oktoberfest"
           />
         </div>
+
+        {/* Ort */}
         <div className="mb-3">
           <label htmlFor="InputEventPlace" className="form-label">
             Veranstaltungsort
@@ -233,8 +278,11 @@ export function ProfileOrgPage() {
             id="eventPlace"
             aria-describedby="eventPlaceHelp"
             onChange={handleChange}
+            placeholder="Arena"
           />
         </div>
+
+        {/* Stadt */}
         <div className="mb-3">
           <label htmlFor="InputEventCity" className="form-label">
             Stadt
@@ -246,12 +294,14 @@ export function ProfileOrgPage() {
             id="eventCity"
             aria-describedby="eventCityHelp"
             onChange={handleChange}
+            placeholder="Berlin, Hamburg, Münster, ..."
           />
         </div>
-        <div>
-          <label htmlFor="eventDate">Datum und Uhrzeit</label>
-          <DatePicker
-            selected={startDate}
+
+        {/* Datum */}
+        <div className="mb-3">
+          <label htmlFor="eventDate">Datum</label>
+          {/* <DatePicker
             onChange={(date) => setStartDate(date)}
             monthsShown={1}
             showTimeSelect
@@ -261,8 +311,35 @@ export function ProfileOrgPage() {
             locale="de"
             dateFormat="dd.MM.yyyy HH:mm"
             value={startDate}
+          /> */}
+          <input
+            value={event.eventDate}
+            type="text"
+            className="form-control"
+            id="eventDate"
+            aria-describedby="eventDateHelp"
+            onChange={handleChange}
+            placeholder="25.02.2023 (dd.mm.yyyy)"
           />
         </div>
+
+        {/* Uhrzeit */}
+        <div className="mb-3">
+          <label htmlFor="InputEventTime" className="form-label">
+            Uhrzeit
+          </label>
+          <input
+            value={event.eventTime}
+            type="text"
+            className="form-control"
+            id="eventTime"
+            aria-describedby="eventTimeHelp"
+            onChange={handleChange}
+            placeholder="08:15 (hh:mm)"
+          />
+        </div>
+
+        {/* Eintrittspreis */}
         <div className="mb-3">
           <label htmlFor="InputEventPrice" className="form-label">
             Preis
@@ -274,9 +351,12 @@ export function ProfileOrgPage() {
             id="eventPrice"
             aria-describedby="eventPriceHelp"
             onChange={handleChange}
+            placeholder="€"
           />
         </div>
-        <button type="submit">Speichern</button>
+        <button className="mt-2" type="submit">
+          Speichern
+        </button>
       </form>
     </div>
   );

@@ -1,81 +1,65 @@
 import React from "react";
+import { useState } from "react";
 
 export function RegistrationUserPage() {
+  // POST user -----
+  const [user, setUser] = useState({
+    benutzername: "",
+    stadt: "",
+    email: "",
+    password: "",
+    passwordWiederholen: "",
+    isAdmin: false,
+  });
+
+  const handleChange = (e) => {
+    setUser({ ...user, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:4009/user", {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    }).then((response) => response.json());
+    setUser(user);
+    console.log(user);
+  };
+
   return (
     <div>
-      <h1>RegistrationUserPage</h1>
-      <form action="">
+      <h1 className="mt-4">Registriere dich jetzt!</h1>
+      <form action="" className="mt-4" onSubmit={handleSubmit}>
         {/* Benutzername */}
         <div className="mb-3">
           <label htmlFor="InputProfileName" className="form-label">
             Benutzername
           </label>
           <input
-            type="profilename"
+            value={user.benutzername}
+            type="text"
             className="form-control"
             id="InputProfileName"
             aria-describedby="profileNameHelp"
-          />
-        </div>
-        {/* Vorname */}
-        <div className="mb-3">
-          <label htmlFor="Inputfirstname" className="form-label">
-            Vorname
-          </label>
-          <input
-            type="vorname"
-            className="form-control"
-            id="InputfirstName"
-            aria-describedby="firstNameHelp"
-          />
-        </div>
-        {/* Nachname */}
-        <div className="mb-3">
-          <label htmlFor="InputLastName" className="form-label">
-            Nachname
-          </label>
-          <input
-            type="lastname"
-            className="form-control"
-            id="InputLastName"
-            aria-describedby="lastNameHelp"
+            onChange={handleChange}
           />
         </div>
 
-        {/* Straße und Hausnummer */}
-        <div className="mb-3">
-          <label htmlFor="InputStreet" className="form-label">
-            Straße und Hausnummer
-          </label>
-          <input
-            type="street"
-            className="form-control"
-            id="Inputstreet"
-            aria-describedby="streetHelp"
-          />
-        </div>
-        {/* PLZ */}
-        <div className="mb-3">
-          <label htmlFor="Inputzipcode" className="form-label">
-            Postleitzahl
-          </label>
-          <input
-            type="zipcode"
-            className="form-control"
-            id="Inputzipcode"
-            aria-describedby="zipcodeHelp"
-          />
-        </div>
         {/* Stadt */}
         <div className="mb-3">
           <label htmlFor="Inputcity" className="form-label">
             Stadt
           </label>
           <input
-            type="city"
+            value={user.stadt}
+            type="text"
             className="form-control"
             id="Inputcity"
             aria-describedby="cityHelp"
+            onChange={handleChange}
           />
         </div>
         {/* E-Mail */}
@@ -84,34 +68,12 @@ export function RegistrationUserPage() {
             E-Mail
           </label>
           <input
+            value={user.email}
             type="email"
             className="form-control"
             id="Inputemail"
             aria-describedby="emailHelp"
-          />
-        </div>
-        {/* Telefonnummer */}
-        <div className="mb-3">
-          <label htmlFor="Inputphone" className="form-label">
-            Telefonnummer
-          </label>
-          <input
-            type="phone"
-            className="form-control"
-            id="Inputphone"
-            aria-describedby="phoneHelp"
-          />
-        </div>
-        {/* Zahlungsmethode */}
-        <div className="mb-3">
-          <label htmlFor="Inputpayment" className="form-label">
-            Zahlungsmethode
-          </label>
-          <input
-            type="payment"
-            className="form-control"
-            id="Inputpayment"
-            aria-describedby="paymentHelp"
+            onChange={handleChange}
           />
         </div>
 
@@ -121,10 +83,12 @@ export function RegistrationUserPage() {
             Passwort
           </label>
           <input
+            value={user.password}
             type="password"
             className="form-control"
             id="Inputpassword"
             aria-describedby="passwordHelp"
+            onChange={handleChange}
           />
         </div>
         {/* Passwort wiederholen */}
@@ -133,12 +97,17 @@ export function RegistrationUserPage() {
             Passwort wiederholen
           </label>
           <input
-            type="repeatPassword"
+            value={user.passwordWiederholen}
+            type="password"
             className="form-control"
             id="InputrepeatPassword"
             aria-describedby="repeatPasswordHelp"
+            onChange={handleChange}
           />
         </div>
+        <button className="mt-2" type="submit">
+          Registrieren
+        </button>
       </form>
     </div>
   );
