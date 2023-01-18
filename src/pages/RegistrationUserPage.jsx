@@ -8,7 +8,6 @@ export function RegistrationUserPage() {
     stadt: "",
     email: "",
     password: "",
-    passwordWiederholen: "",
     isAdmin: false,
   });
 
