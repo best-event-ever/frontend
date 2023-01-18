@@ -13,7 +13,6 @@ export function RegistrationOrgPage() {
     email: "",
     telefonnummer: "",
     password: "",
-    passwordWiederholen: "",
     isAdmin: false,
   });
 

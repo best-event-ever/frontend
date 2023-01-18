@@ -38,6 +38,7 @@ export function ProfileOrgPage() {
     eventDate: "",
     eventTime: "",
     eventPrice: "",
+    img: "",
   });
 
   const handleChange = (e) => {
