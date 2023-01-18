@@ -8,15 +8,23 @@ import de from "date-fns/locale/de";
 registerLocale("de", de);
 import { FaSearch } from "react-icons/fa";
 import Suchergebnis from '../components/Suchergebnis.jsx';  
+import { RandomEvents } from "../components/RandomEvents.jsx";
 // import { Link } from "react-router-dom";
+
+
+
 
 export function Homepage() {
   const [startDate, setStartDate] = useState(new Date());
   const [input, setInput] = useState("");
   const [search, setSearched] = useState([]);
   const [uebergabe, setUebergabe] = useState("");
+  
   const navigate = useNavigate();
 
+
+  
+  
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -121,6 +129,7 @@ export function Homepage() {
         </button>
       </form>
       {/* V E R A N S T A L T U N G S Ü B E R S I C H T */}
+      <RandomEvents />
       <Suchergebnis search={search} uebergabe={uebergabe}/>
       {/* <table className="table">
         <thead>
