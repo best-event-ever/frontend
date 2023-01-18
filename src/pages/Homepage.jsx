@@ -7,26 +7,33 @@ import { registerLocale, setDefaultLocale } from "react-datepicker";
 import de from "date-fns/locale/de";
 registerLocale("de", de);
 import { FaSearch } from "react-icons/fa";
+import Suchergebnis from '../components/Suchergebnis.jsx';  
 // import { Link } from "react-router-dom";
 
 export function Homepage() {
   const [startDate, setStartDate] = useState(new Date());
   const [input, setInput] = useState("");
-  const navigate = useNavigate();
-  const submitHandler = (e) => {
-    e.preventDefault();
-    navigate("/results/" + input);
-  };
   const [search, setSearched] = useState([]);
-  let params = useParams();
-  const getSearched = async () => {
+  const navigate = useNavigate();
+  const submitHandler = async (e) => {
+    e.preventDefault();
     const data = await fetch("http://localhost:4009/events/");
-    const recipes = await data.json();
-    setSearched(recipes);
+    const events = await data.json();
+    console.log('event ',events);
+    setSearched(events);
+    setInput("");
   };
-  useEffect(() => {
-    getSearched(params.searched);
-  }, [params.searched]);
+  // const [search, setSearched] = useState([]);
+  // let params = useParams();
+  // const getSearched = async () => {
+  //   const data = await fetch("http://localhost:4009/events/");
+  //   const recipes = await data.json();
+  //   setSearched(recipes);
+  // };
+
+  // useEffect(() => {
+  //   getSearched(params.searched);
+  // }, [params.searched]);
 
   return (
     <div>
@@ -109,7 +116,8 @@ export function Homepage() {
         </button>
       </form>
       {/* V E R A N S T A L T U N G S Ü B E R S I C H T */}
-      <table className="table">
+      <Suchergebnis search={search}/>
+      {/* <table className="table">
         <thead>
           <tr>
             <th scope="col">Event</th>
@@ -139,7 +147,7 @@ export function Homepage() {
               </tbody>
             );
           })}
-      </table>
+      </table> */}
     </div>
   );
 }
